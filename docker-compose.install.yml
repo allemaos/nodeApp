@@ -1,0 +1,7 @@
+myapp:
+  build: .
+  dockerfile: Dockerfile.install  
+  command: echo 'ready'
+  volumes:
+    - .:/home/app/myapp
+    - /home/app/myapp/node_modules

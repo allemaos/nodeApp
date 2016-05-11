@@ -1,0 +1,6 @@
+myapp:
+  build: .
+  dockerfile: Dockerfile.init
+  command: echo 'ready'
+  volumes:
+    - .:/home/app/myapp
