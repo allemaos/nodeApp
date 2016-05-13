@@ -25,7 +25,7 @@ elif [ $(<buildstep) = "1" ]; then
     echo "$(<buildstep). Installing Dependencies"
     echo "-----------------------------------------------\n" 
     docker build -t myapp -f Dockerfile.install .
-    docker-compose -f docker-compose.init.yml  build
+    docker-compose -f docker-compose.install.yml  build
     echo "\n-----------------------------------------------"
     echo "Installing Dependencies is ready (End of buildstep: $(<buildstep))"
     echo "-----------------------------------------------\n" 
@@ -74,7 +74,31 @@ elif [ $(<buildstep) = "5" ]; then
     echo "\n-----------------------------------------------"
     echo "$(<buildstep). Build the App [development]:"
     echo "-----------------------------------------------\n" 
-    #docker-compose -f docker-compose.dev.yml  run --rm myapp /bin/bash dev.sh
+    docker-compose -f docker-compose.dev.yml  run --rm myapp /bin/bash dev.sh
+    docker-compose -f docker-compose.dev.yml build
+    docker-compose -f docker-compose.dev.yml up &
+    echo "\n- - - - - - - - - - - - - - - - - - - - - - - -"
+    echo "App running [development mode] (End of buildstep: $(<buildstep))"
+    echo "- - - - - - - - - - - - - - - - - - - - - - - -\n" 
+    sleep 10s   
+    docker-compose -f docker-compose.dev.yml down
+    echo "\n- - - - - - - - - - - - - - - - - - - - - - - -"
+    echo "App testing [development mode] (End of buildstep: $(<buildstep))"
+    echo "- - - - - - - - - - - - - - - - - - - - - - - -\n" 
+    docker-compose run --rm myapp /bin/bash -c 'npm --silent test'
+    echo "\n- - - - - - - - - - - - - - - - - - - - - - - -"
+    echo "App testing ends [development mode] (End of buildstep: $(<buildstep))"
+    echo "- - - - - - - - - - - - - - - - - - - - - - - -\n\n" 
+  
+    echo "\n-----------------------------------------------"
+    echo "App is down  [development mode] (End of buildstep: $(<buildstep))"
+    echo "-----------------------------------------------\n" 
+
+    echo "6">buildstep
+elif [ $(<buildstep) = "6" ]; then
+    echo "\n-----------------------------------------------"
+    echo "$(<buildstep). Build the App [development]:"
+    echo "-----------------------------------------------\n" 
     docker-compose -f docker-compose.dev.yml build
     docker-compose -f docker-compose.dev.yml up &
     echo "\n- - - - - - - - - - - - - - - - - - - - - - - -"
