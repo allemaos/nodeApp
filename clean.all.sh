@@ -17,4 +17,4 @@ docker images -q | xargs docker rmi -f
 
 
 # delete machine
-docker-machine rm dev
+docker-machine rm -y dev

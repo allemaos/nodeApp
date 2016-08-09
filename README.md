@@ -16,9 +16,23 @@ You will to execute mutliple times (#6) till buildstep file content is number 6.
 ./build.sh
 ```
 
+##Step3:
+Run one of following:
+
+`./run.sh`, `./run.dev.sh` or `./run.prod.sh`
+
+And test your app using curl:
+```
+curl http://$(docker-machine ip dev):3000 
+```
+or
+```
+curl -Is http://$DOCKER_IP:3000 | head -n 1
+```
+
 ###Notes: 
-- Number 6 is the end of the setup of this devApp using node.hs (for the time being). 
-- There is `rebuild.sh` file to rebuild the hole setup all over again. You can use the following command to log to log.txt file and copiy the input to standard output as well:
+* Number 6 is the end of the setup of this devApp using node.hs (for the time being). 
+* There is `rebuild.sh` file to rebuild the hole setup all over again. You can use the following command to log to log.txt file and copiy the input to standard output as well:
 
 ```
 ./rebuild.sh | tee -a "log_file"
@@ -29,13 +43,13 @@ You will to execute mutliple times (#6) till buildstep file content is number 6.
 ```
 ./clean.sh
 ```
-- When you finished with nodeApp, you should run the following command to clean your machine:
+* When you finished with nodeApp, you should run the following command to clean your machine:
 
 ```
 ./clean.all.sh
 ```
 
-- Happy coding.
+* Happy coding.
 
 ###ToDo:
 0. Mention my references links and the ppl who helped me to make this repo.
