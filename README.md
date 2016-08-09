@@ -18,7 +18,12 @@ You will to execute mutliple times (#6) till buildstep file content is number 7.
 
 ###Notes: 
 - Number 6 is the end of the setup of this devApp using node.hs (for the time being). 
-- There is rebuild.sh file to rebuild the hole setup all over again.
+- There is `rebuild.sh` file to rebuild the hole setup all over again. You can use the following command to log to log.txt file and copiy the input to standard output as well:
+
+```
+.rebuild.sh | tee -a "$log.txt"
+```
+
 - To clean your nodeApp and , you should run the following command to clean your machine:
 
 ```
