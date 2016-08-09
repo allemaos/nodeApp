@@ -5,7 +5,7 @@ rm npm-shrinkwrap.json
 rm buildstep
 rm -rf node_modules
 
-./prebuild.sh
+prebuild.sh
 
 docker ps -q -a | xargs docker rm
 
@@ -13,4 +13,4 @@ docker ps -q -a | xargs docker rm
 
 #delete all images
 #docker images -q | xargs docker rmi
-#docker images -q | xargs docker rmi -f
+docker images -q | xargs docker rmi -f
