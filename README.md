@@ -10,7 +10,7 @@ You need to run docker demon on mac.
 ```
 
 ##Step 2: 
-You will to execute mutliple times (#6) till buildstep file content is number 7. 
+You will to execute mutliple times (#6) till buildstep file content is number 6. 
 
 ```
 ./build.sh
@@ -21,7 +21,7 @@ You will to execute mutliple times (#6) till buildstep file content is number 7.
 - There is `rebuild.sh` file to rebuild the hole setup all over again. You can use the following command to log to log.txt file and copiy the input to standard output as well:
 
 ```
-.rebuild.sh | tee -a "$log.txt"
+./rebuild.sh | tee -a "log_file"
 ```
 
 - To clean your nodeApp and , you should run the following command to clean your machine:
