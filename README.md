@@ -58,9 +58,11 @@ curl -Is http://$DOCKER_IP:3000 | head -n 1
 3. Create a new repo or extend this one using Vagrant for a multiOS approach besides MacOS.
 
 ###References:
-ref’s: 
-mandatories:
+
 0. [Creating the default localVM](https://docs.docker.com/machine/get-started/)
+
 1. [Build and run an app with Compose on your localVM](https://docs.docker.com/compose/gettingstarted/)
+
 2. [Docker installation on Mac](https://docs.docker.com/engine/installation/mac/)
+
 3. [ngpestelos/remove-docker-containers] (https://gist.github.com/ngpestelos/4fc2e31e19f86b9cf10b)
