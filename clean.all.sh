@@ -14,3 +14,7 @@ docker ps -q -a | xargs docker rm
 #delete all images
 #docker images -q | xargs docker rmi
 docker images -q | xargs docker rmi -f
+
+
+# delete machine
+docker-machine rm dev
